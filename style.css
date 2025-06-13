@@ -37,7 +37,7 @@
   animation: clouds-animation 20s infinite linear;
 }
 
-.buttom{
+button{
 background: green;
 color: white;
 font-weight: bold;
@@ -49,6 +49,12 @@ right: 50vw;
 top: 50vh;
 cursor: pointer;
 z-index: 1;
+}
+
+button:hover {
+border: 2px solid green;
+background: none;
+color: green;
 }
 
 @keyframes pipe-animation{
