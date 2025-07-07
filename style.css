@@ -14,7 +14,7 @@
   background: linear-gradient(#87ceeb,#e0f6ff);
 }
 
-.pipe, mario, .nuvem{
+.pipe, .mario, .nuvem {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
@@ -41,7 +41,7 @@
   animation: clouds-animation 20s infinite linear;
 }
 
-button{
+button {
 background: green;
 color: white;
 font-weight: bold;
@@ -61,11 +61,11 @@ background: none;
 color: green;
 }
 
-button.start{
+button.start {
   display:block;
 }
 
-.score{
+.score {
 position: absolute;
 top: 10px;
 right: 10px;
@@ -76,7 +76,12 @@ border-radius: 8px;
 font-family: 'Arial', sans-serif;
 }
 
-.game-over{
+.score span {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.game-over {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.2);
