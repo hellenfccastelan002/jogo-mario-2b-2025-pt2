@@ -1,10 +1,10 @@
 const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
 const nuvem = document.querySelector(".nuvem");
-const startButton = document.querySelector(".start");
 const gameOverScreen = document.getElementById("game-over-screen");
 const scoreElement = document.querySelector(".score span");
 const monstro = document.querySelector(".monstro");
+const startButton = document.getElementById("startButton"); 
 
 audioStart = new Audio("./sound/audio_theme.mp3");
 const gameOverSound = new Audio("./sound/audio_gameover.mp3");
@@ -18,6 +18,8 @@ let monstroLeft = -250;
 const marioSpeed = 2; 
 const monstroSpeed = 1;  
 
+startButton.addEventListener('click', startGame);
+
 const restartGame = () => {
     window.location.reload();
 }
@@ -26,7 +28,6 @@ gameOverScreen.addEventListener('click', restartGame);
 
 
 const handleGameOver = (objectPosition, marioCurrentPosition) => {
-    // Para as animações dos objetos
     pipe.style.animation = "none";
     pipe.style.left = `${objectPosition.pipe}px`; 
 
@@ -34,7 +35,7 @@ const handleGameOver = (objectPosition, marioCurrentPosition) => {
 
     mario.style.animation = "none";
     mario.style.left = `${marioCurrentPosition}px`; 
-    mario.style.bottom = ${+window.getComputedStyle(mario).bottom.replace("px", "")}px; 
+    mario.style.bottom = `${+window.getComputedStyle(mario).bottom.replace("px", "")}px`; 
 
     mario.src = "./imagem/game-over.png";
     mario.style.width = "75px";
@@ -85,7 +86,7 @@ const startGame = () => {
     audioStart.play();
 
     
-    pipe.style.animation = `pipe-animation ${animationSpeed}s = infinite linear`;
+    pipe.style.animation = "pipe-animation 1.5s infinite linear";
     nuvem.style.animation = "clouds-animation 20s infinite linear"; 
 
     startButton.style.display = "none";
@@ -119,7 +120,7 @@ const updateScore = () => {
     scoreElement.textContent = score;
 
     const animationSpeed = 1.5 / (1 + score / 500);
-    pipe.style.animation = pipe-animation ${animationSpeed}s infinite linear;
+    pipe.style.animation = `pipe-animation ${animationSpeed}s infinite linear`;
 }
 
 
@@ -136,7 +137,7 @@ const loop = () => {
     }
 
     if (marioLeft < 0) marioLeft = 0;
-    if (marioLeft > window.innerWidth - mario.offsetWidth) marioLeft = window.innerWidth - mario.offsetWidth;
+    if (marioLeft > window.innerWidth - mario.offsetWidth) marioLeft = window;innerWidth - mario.offsetWidth;
     
     mario.style.left = `${marioLeft}px`;
 
