@@ -28,12 +28,12 @@ gameOverScreen.addEventListener('click', restartGame);
 const handleGameOver = (objectPosition, marioCurrentPosition) => {
     // Para as animações dos objetos
     pipe.style.animation = "none";
-    pipe.style.left = ${objectPosition.pipe}px; 
+    pipe.style.left = `${objectPosition.pipe}px`; 
 
     nuvem.style.animation = "none"; 
 
     mario.style.animation = "none";
-    mario.style.left = ${marioCurrentPosition}px; 
+    mario.style.left = `${marioCurrentPosition}px`; 
     mario.style.bottom = ${+window.getComputedStyle(mario).bottom.replace("px", "")}px; 
 
     mario.src = "./imagem/game-over.png";
@@ -41,7 +41,7 @@ const handleGameOver = (objectPosition, marioCurrentPosition) => {
     mario.style.marginLeft = "50px";
 
     monstro.style.animation = "none";
-    monstro.style.left = ${monstroLeft}px;
+    monstro.style.left = `${monstroLeft}px`;
 
     audioStart.pause();
     gameOverSound.play();
@@ -85,7 +85,7 @@ const startGame = () => {
     audioStart.play();
 
     
-    pipe.style.animation = "pipe-animation 1.5s infinite linear";
+    pipe.style.animation = `pipe-animation ${animationSpeed}s = infinite linear`;
     nuvem.style.animation = "clouds-animation 20s infinite linear"; 
 
     startButton.style.display = "none";
@@ -138,15 +138,15 @@ const loop = () => {
     if (marioLeft < 0) marioLeft = 0;
     if (marioLeft > window.innerWidth - mario.offsetWidth) marioLeft = window.innerWidth - mario.offsetWidth;
     
-    mario.style.left = ${marioLeft}px;
+    mario.style.left = `${marioLeft}px`;
 
 
     if (monstroLeft < marioLeft - 150) { 
         monstroLeft += monstroSpeed;
     } else if (monstroLeft > marioLeft - 100) { 
-        monstroLeft -= monantoSpeed / 2; 
+        monstroLeft -= monstroSpeed / 2; 
     }
-    monstro.style.left = ${monstroLeft}px;
+    monstro.style.left = `${monstroLeft}px`;
 
 
     if (pipePosition <= marioLeft + mario.offsetWidth && pipePosition + pipe.offsetWidth >= marioLeft && marioBottomPosition < 80) {
