@@ -11,10 +11,12 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(#87ceeb,#e0f6ff);
+  background: linear-gradient(#87ceeb, #e0f6ff);
 }
 
-.pipe, .mario, .nuvem {
+.pipe,
+.mario,
+.nuvem {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
@@ -42,38 +44,40 @@
 }
 
 button {
-background: green;
-color: white;
-font-weight: bold;
-font-size: 1.5rem;
-border: none;
-padding: 1rem;
-position: absolute;
-right: 50vw;
-top: 50vh;
-cursor: pointer;
-z-index: 1;
+  background: green;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  padding: 1rem;
+  position: absolute;
+  right: 50vw;
+  top: 50vh;
+  cursor: pointer;
+  z-index: 1;
 }
 
 button:hover {
-border: 2px solid green;
-background: none;
-color: green;
+  border: 2px solid green;
+  background: none;
+  color: green;
 }
 
 button.start {
-  display:block;
+  display: block;
 }
 
 .score {
-position: absolute;
-top: 10px;
-right: 10px;
-background-color: rgba(0, 0, 0, 0.5);
-font-size: 24px;
-padding: 10px;
-border-radius: 8px;
-font-family: 'Arial', sans-serif;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  color: white; 
+  z-index: 50; 
 }
 
 .score span {
@@ -81,37 +85,54 @@ font-family: 'Arial', sans-serif;
   font-size: 30px;
 }
 
-.game-over {
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.hidden {
+  display: none !important;
+}
+
+#game-over-screen {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000; 
+  background-color: rgba(0, 0, 0, 0.0); 
+  cursor: pointer; 
+
+  opacity: 0; 
+  backdrop-filter: blur(0px); 
+  transition: opacity 2s ease-in-out, backdrop-filter 2s ease-in-out, background-color 2s ease-in-out;
 }
 
-.game-over h1{
-  font-size: 3rem;
-  color: red;
-  text-align: center;
-  margin-top: 15rem;
+#restart-image {
+  max-width: 90%;
+  max-height: 90%;
+  image-rendering: pixelate;
+  pointer-events: none;
 }
 
-@keyframes pipe-animation{
+.game-over-active {
+  opacity: 1 !important; 
+  background-color: rgba(0, 0, 0, 0.9) !important; 
+  backdrop-filter: blur(5px) !important;
+}
+
+@keyframes pipe-animation {
   from {right: -80px;}
   to {right: 100%;}
 }
 
-@keyframes clouds-animation{
+@keyframes clouds-animation {
   from {right: -550px;}
   to {right: 100%;}
 }
 
-@keyframes jump{
+@keyframes jump {
   0% {bottom: 0;}
   40% {bottom: 180px;}
   50% {bottom: 180px;}
