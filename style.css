@@ -56,7 +56,7 @@
 }
 
 button {
-  background: green;
+  background: rgb(0, 0, 0);
   color: white;
   font-weight: bold;
   font-size: 1.5rem;
@@ -71,9 +71,9 @@ button {
 }
 
 button:hover {
-  border: 2px solid green;
+  border: 2px solid rgb(0, 0, 0);
   background: none;
-  color: green;
+  color: rgb(0, 0, 0);
 }
 
 button.start {
@@ -125,7 +125,7 @@ button.start {
 #restart-image {
   max-width: 90%;
   max-height: 90%;
-  image-rendering: pixelate;
+  image-rendering: pixelated;
   pointer-events: none;
 }
 
