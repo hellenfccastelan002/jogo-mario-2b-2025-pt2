@@ -65,7 +65,6 @@ button {
   position: absolute;
   right: 50vw;
   top: 50vh;
-  transform: translate(50%, -50%); 
   cursor: pointer;
   z-index: 1;
 }
